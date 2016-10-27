@@ -61,6 +61,15 @@ pod 'ATCircularProgressView'
 use_frameworks!
 ```
 
+###To do in the next few days
+- iOS 6+ support
+- Refactor
+- Write tests
+
+###To do in the next week or so
+- Be able to set center color
+- Fix whitespace issue with different widths for border/progress layers
+
 #Author
 [@admtcl](https://twitter.com/admtcl)
 
