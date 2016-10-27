@@ -5,7 +5,7 @@ Pod::Spec.new do |s|
   s.summary      = "A simple and lightweight circular progress view for iOS." 
   s.description  = "A simple and lightweight circular progress view for iOS. Configurable in Storyboard or in code."
   s.homepage     = "https://github.com/atecle/ATCircularProgressView"
-  s.license      = "MIT"
+  s.license      = { :type => 'MIT', :file => 'LICENSE' }
   s.author       = { "Adam" => "adam.tecle@gmail.com" }
   s.social_media_url   = "http://twitter.com/admtcl"
   s.platform     = :ios, "10.0"
