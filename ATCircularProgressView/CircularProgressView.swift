@@ -37,6 +37,13 @@ import UIKit
         }
     }
     
+    /// The fill color of the view. Defaults to clear.
+    @IBInspectable dynamic open var fillColor: UIColor = .clear {
+        didSet {
+            borderLayer.fillColor = fillColor.cgColor
+        }
+    }
+    
     /// The value of the progress bar. Must be between 0.0 - 1.0. Defaults to 0.
     @IBInspectable dynamic open var progress: CGFloat = 0.0 {
         didSet {
@@ -47,6 +54,16 @@ import UIKit
     
     /// A closure that's called each time the progress changes
     open var progressChanged: ((CircularProgressView, CGFloat) -> ())?
+    
+    open var centralView: UIView? {
+        didSet {
+           guard let view = centralView
+            else { return }
+            
+            view.removeFromSuperview()
+            addSubview(view)
+        }
+    }
     
     private let progressLayer = CAShapeLayer()
     
@@ -98,7 +115,7 @@ import UIKit
     
     open override func layoutSubviews() {
         super.layoutSubviews()
-                
+        
         borderLayer.frame = bounds
         progressLayer.frame = bounds
         progressLayer.strokeEnd = progress
@@ -106,6 +123,8 @@ import UIKit
         let progressPath = progressStrokePath(bounds: bounds)
         borderLayer.path = borderPath
         progressLayer.path = progressPath
+        
+        centralView?.center = CGPoint(x: bounds.midX, y: bounds.midY)
     }
     
     open override func prepareForInterfaceBuilder() {
