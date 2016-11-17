@@ -62,6 +62,7 @@ import UIKit
                 else { return }
             
             view.removeFromSuperview()
+            configureCentralView()
             addSubview(view)
             layoutIfNeeded()
         }
@@ -227,6 +228,20 @@ import UIKit
         configureImageView()
     }
     
+    private func configureCentralView() {
+        guard let centralView = centralView
+            else { return }
+        centralView.translatesAutoresizingMaskIntoConstraints = false
+        addSubview(centralView)
+        
+        let top = NSLayoutConstraint(item: centralView, attribute: .top, relatedBy: .equal, toItem: self, attribute: .top, multiplier: 1, constant: 0)
+        let leading = NSLayoutConstraint(item: centralView, attribute: .leading, relatedBy: .equal, toItem: self, attribute: .leading, multiplier: 1, constant: 0)
+        let trailing = NSLayoutConstraint(item: centralView, attribute: .trailing, relatedBy: .equal, toItem: self, attribute: .trailing, multiplier: 1, constant: 0)
+        let bottom = NSLayoutConstraint(item: centralView, attribute: .bottom, relatedBy: .equal, toItem: self, attribute: .bottom, multiplier: 1, constant: 0)
+        
+        addConstraints([top, leading, trailing, bottom])
+    }
+    
     private func configureImageView() {
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleAspectFill
@@ -240,6 +255,7 @@ import UIKit
         let bottom = NSLayoutConstraint(item: imageView, attribute: .bottom, relatedBy: .equal, toItem: self, attribute: .bottom, multiplier: 1, constant: 0)
         let width = NSLayoutConstraint(item: imageView, attribute: .width, relatedBy: .equal, toItem: self, attribute: .width, multiplier: 1, constant: 0)
         let height = NSLayoutConstraint(item: imageView, attribute: .height, relatedBy: .equal, toItem: imageView, attribute: .width, multiplier: 1, constant: 0)
+        height.priority = UILayoutPriorityDefaultLow
         
         addConstraints([top, leading, trailing, bottom, width, height])
     }
