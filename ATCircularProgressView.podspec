@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "ATCircularProgressView"
-  s.version      = "1.0.0"
+  s.version      = "1.0.1"
   s.summary      = "A simple and lightweight circular progress view for iOS." 
   s.description  = "A simple and lightweight circular progress view for iOS. Configurable in Storyboard or in code."
   s.homepage     = "https://github.com/atecle/ATCircularProgressView"
