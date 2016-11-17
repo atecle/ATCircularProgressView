@@ -5,6 +5,7 @@
 </p>
 
 [![CocoaPods](https://img.shields.io/cocoapods/v/ATCircularProgressView.svg)](http://www.cocoapods.org/?q=atcircularprogressview)
+[![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 ![Swift 3](https://img.shields.io/badge/swift-3-orange.svg)
 
 A super simple circular progress view for iOS that you can customize in Storyboard, or in code. It's lightweight and performant - uses CAShapeLayers to do drawing and CADisplayLink to update you on the progress.
@@ -53,6 +54,10 @@ progressView.progressChanged = progressChanged
 
 Check out the demo project and play around with it.
 
+#Lame install
+
+Just drag and drop CircularProgressView into your project
+
 #Setup with CocoaPods
 
 ```
@@ -61,12 +66,11 @@ pod 'ATCircularProgressView'
 use_frameworks!
 ```
 
-###TODO
-- iOS 6+ support
-- Refactor
-- Write tests
-- Fix whitespace issue with different widths for border/progress layers
-- Set an image
+#Setup with Carthage
+
+```
+git "atecle/ATCircularProgressView"
+```
 
 #Author
 [@admtcl](https://twitter.com/admtcl)
