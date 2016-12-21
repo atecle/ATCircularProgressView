@@ -17,7 +17,7 @@ You can create an instance in code, or by dragging a UIView into your Storyboard
 Here's how you set the progress
 ####Swift
 ```swift
-progressView.setProgress(value: random, animated: true, duration: 1, completion: nil)
+progressView.setProgress(value: 0.5, animated: true, duration: 1, completion: nil)
 ```
 ####Objective-C
 ```objective-c
