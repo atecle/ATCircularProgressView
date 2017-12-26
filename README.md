@@ -1,5 +1,5 @@
 
-#ATCircularProgressView
+# ATCircularProgressView
 <p align="center">
   <img height="420" src="assets/screenshot.gif"/>
 </p>
@@ -10,23 +10,23 @@
 
 A super simple circular progress view for iOS that you can customize in Storyboard, or in code. It's lightweight and performant - uses CAShapeLayers to do drawing and CADisplayLink to update you on the progress.
 
-##Usage
+## Usage
 
 You can create an instance in code, or by dragging a UIView into your Storyboard and setting the subclass and module.
 
 Here's how you set the progress
-####Swift
+#### Swift
 ```swift
 progressView.setProgress(value: 0.5, animated: true, duration: 1, completion: nil)
 ```
-####Objective-C
+#### Objective-C
 ```objective-c
 [self.progressView setProgressWithValue:0.5 animated:YES duration:1 completion:nil];
 ```
 
 If you want to perform some work while the progress is changing, like update a label, set the `progressChanged` property
 
-####Swift
+#### Swift
 ```swift
  let progressChanged: (CircularProgressView, CGFloat) -> () = { [unowned self]
       (progressView, progress) in
@@ -37,7 +37,7 @@ If you want to perform some work while the progress is changing, like update a l
 progressView.progressChanged = progressChanged
 ```
 
-####Objective-C
+#### Objective-C
 ```objective-c
    __weak typeof(self) weakSelf = self;
     self.progressView.progressChanged =  ^(CircularProgressView *progressView, CGFloat progress) {
@@ -53,29 +53,29 @@ progressView.progressChanged = progressChanged
 </p>
 
 Check out the demo project and play around with it.
-
-#Lame install
+ 
+### Lame install
 
 Just drag and drop CircularProgressView into your project
-
-#Setup with CocoaPods
+ 
+### Setup with CocoaPods
 
 ```
 pod 'ATCircularProgressView'
 
 use_frameworks!
 ```
-
-#Setup with Carthage
+ 
+### Setup with Carthage
 
 ```
 git "atecle/ATCircularProgressView"
 ```
-
-#Author
+ 
+### Author
 [@admtcl](https://twitter.com/admtcl)
-
-#MIT License
+ 
+# MIT License
     The MIT License (MIT)
 
     Copyright (c) 2016 Adam Tecle

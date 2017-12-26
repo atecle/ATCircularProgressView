@@ -93,7 +93,6 @@ import UIKit
     override init(frame: CGRect) {
         super.init(frame: frame)
         setup()
-        
     }
     
     public required init?(coder aDecoder: NSCoder) {
@@ -168,8 +167,7 @@ import UIKit
     }
     
     @objc private func displayLinkDidFire(_: CADisplayLink) {
-        guard let value = progressLayer.presentation()?.strokeEnd
-            else { return }
+        guard let value = progressLayer.presentation()?.strokeEnd else { return }
         
         progressChanged?(self, value)
         if value == destinationValue {
@@ -182,16 +180,22 @@ import UIKit
     private func borderStrokePath(bounds: CGRect) -> CGPath {
         let center = CGPoint(x: bounds.midX, y: bounds.midY)
         let radius = bounds.midX
-        
-        let path = UIBezierPath(arcCenter: center, radius: radius, startAngle: startAngle, endAngle: endAngle, clockwise: true)
+        let path = UIBezierPath(arcCenter: center,
+                                radius: radius,
+                                startAngle: startAngle,
+                                endAngle: endAngle,
+                                clockwise: true)
         return path.cgPath
     }
     
     private func progressStrokePath(bounds: CGRect) -> CGPath {
         let center = CGPoint(x: bounds.midX, y: bounds.midY)
         let radius = bounds.midX
-        
-        let path = UIBezierPath(arcCenter: center, radius: radius, startAngle: startAngle, endAngle: endAngle, clockwise: true)
+        let path = UIBezierPath(arcCenter: center,
+                                radius: radius,
+                                startAngle: startAngle,
+                                endAngle: endAngle,
+                                clockwise: true)
         return path.cgPath
     }
     
@@ -205,8 +209,8 @@ import UIKit
     }
     
     private func createDisplayLink() {
-        guard displayLink == nil
-            else { return }
+        guard displayLink == nil else { return }
+        
         displayLink = CADisplayLink(target: self, selector: #selector(displayLinkDidFire(_:)))
         displayLink?.isPaused = false
         displayLink?.add(to: .main, forMode: .commonModes)
@@ -223,14 +227,14 @@ import UIKit
         layer.addSublayer(borderLayer)
         layer.addSublayer(progressLayer)
         
-        startAngle = CGFloat(-(M_PI * 0.5))
-        endAngle   = CGFloat(3.0/4.0 * (M_PI * 2.0))
+        startAngle = CGFloat(-(Double.pi * 0.5))
+        endAngle   = CGFloat(3.0/4.0 * (Double.pi * 2.0))
         configureImageView()
     }
     
     private func configureCentralView() {
-        guard let centralView = centralView
-            else { return }
+        guard let centralView = centralView else { return }
+        
         centralView.translatesAutoresizingMaskIntoConstraints = false
         addSubview(centralView)
         
@@ -255,7 +259,7 @@ import UIKit
         let bottom = NSLayoutConstraint(item: imageView, attribute: .bottom, relatedBy: .equal, toItem: self, attribute: .bottom, multiplier: 1, constant: 0)
         let width = NSLayoutConstraint(item: imageView, attribute: .width, relatedBy: .equal, toItem: self, attribute: .width, multiplier: 1, constant: 0)
         let height = NSLayoutConstraint(item: imageView, attribute: .height, relatedBy: .equal, toItem: imageView, attribute: .width, multiplier: 1, constant: 0)
-        height.priority = UILayoutPriorityDefaultLow
+        height.priority = .defaultLow
         
         addConstraints([top, leading, trailing, bottom, width, height])
     }
